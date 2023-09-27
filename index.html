@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DICOM UID generator</title>
+    <link rel="stylesheet" href="static/style.css">
+    <script type="module" src="./static/index.mjs"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>DICOM UID generator</h1>
+        </div>
+        <div class="content main">
+            <p>Press the button for a DICOM UID</p>
+
+            <!-- text box -->
+            <input id="btn" type="button" value="Generate UID">
+            <input id="txt_uid" maxlength="64" readonly></input>
+            <!-- copy to clipboard button -->
+            <button id="btn_copy">Copy</button>
+        </div>
+        <hr/>
+        <div>
+
+            <h3 class="q">What is a DICOM UID?</h3>
+
+            <p>
+                This is the format established by the
+                <a href="https://dicomstandard.org">DICOM standard</a>
+                to make unique identifiers for DICOM objects, classes, implementations,
+                and various other concepts.
+                It is based on the OSI Object Identification standard (numeric form),
+                and is a sequence of unsigned integers separated by dots,
+                with a maximum length of 64 characters.
+            </p>
+            <p>
+                For encoding purposes,
+                the UID may also be padded with a single null character
+                (<code>'\0'</code>) so that its length is even.
+                The output above does not have this padding.
+            </p>
+            <p>
+                The specification proper is in
+                <a href="https://dicom.nema.org/medical/dicom/2023c/output/chtml/part05/chapter_9.html">part 5, chapter 9</a>
+                of the standard.
+            </p>
+
+            <h3 class="q">How are they generated?</h3>
+
+            <p>
+                This generator strictly follows <a href="https://dicom.nema.org/medical/dicom/2023c/output/chtml/part05/sect_B.2.html">Annex B.2 in part 5</a>
+                of the standard,
+                which describes UUID derived UIDs.
+                A UUID v4 is generated,
+                and its numeric value is combined with the fixed root "2.25"
+                to create a unique identifier.
+            </p>
+            <p>
+                All of this is done in your browser,
+                so no data is sent to any server.
+            </p>
+
+            <h3 class="q">Is this open source?</h3>
+
+            <p>
+                Yes! The source code is available
+                <a href="https://github.com/Enet4/dicom-gen-uid-website">on GitHub</a>.
+
+                The library used for generating UIDs is
+                <a href="https://github.com/Enet4/dicom-gen-uid">also open source</a>,
+                written in Rust and deployed through WebAssembly.
+            </p>
+        </div>
+    </div>
+</body>
+</html>

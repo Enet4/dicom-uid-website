@@ -1,0 +1,24 @@
+[package]
+name = "dicom-uid-website"
+publish = false
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+dicom-gen-uid = "0.1.0"
+
+[dependencies.getrandom]
+version = "0.2.10"
+features = ["js", "wasm-bindgen"]
+
+[dependencies.wasm-bindgen]
+version = "0.2.87"
+features = []
+
+[profile.release]
+opt-level = 's'
+lto = 'fat'
+codegen-units = 1
