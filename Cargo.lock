@@ -17,12 +17,14 @@ checksum = "baf1de4339761588bc0619e3cbc0120ee582ebb74b53b4efbf79117bd2da40fd"
 [[package]]
 name = "dicom-gen-uid"
 version = "0.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "c573f177af6a2e6c9430bcc6c85a2f2b9098cc87a00f69f2809b22e69695daac"
 dependencies = [
  "uuid",
 ]
 
 [[package]]
-name = "dicom-gen-uid-website"
+name = "dicom-uid-website"
 version = "0.1.0"
 dependencies = [
  "dicom-gen-uid",
