@@ -1,4 +1,4 @@
-import { default as init, gen_uid } from "./wasm/dicom-gen-uid.js";
+import { default as init, gen_uid } from "./wasm/dicom-uid.js";
 
 // initialize the wasm module
 await init();
